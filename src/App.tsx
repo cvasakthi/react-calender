@@ -8,7 +8,6 @@ import MeetingList from "./component/MeetingList";
 function App() {
   const [eventsList, setEventsList] = useState<EventI[]>([]);
   const [selected, setSelected] = useState<EventI[]>([]);
-  const [loading, setLoading] = useState(true);
   const [showSlideover, setShowSlideover] = useState<boolean>(false);
   useEffect(() => {
     fetchAllEvents()
@@ -17,9 +16,6 @@ function App() {
       })
       .catch((err: any) => {
         console.log(err);
-      })
-      .finally(() => {
-        setLoading(false);
       });
   }, []);
   return (

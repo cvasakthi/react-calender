@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { EventI } from "../type/events";
 import MeetingCard from "./MeetingCard";
 interface MeetingListI {
