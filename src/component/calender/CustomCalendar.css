@@ -1,0 +1,10 @@
+.fc .fc-timegrid-slot-minor {
+  border: none;
+}
+.fc-timegrid-slot-label-cushion {
+  color: "#3788D8" !important;
+}
+.fc-daygrid-dot-event:hover {
+  background-color: inherit;
+  cursor: pointer;
+}
