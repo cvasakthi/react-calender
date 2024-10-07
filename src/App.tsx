@@ -26,7 +26,12 @@ function App() {
         </h4>
       </header>
       <div className="mx-auto container mt-2">
-        <CustomCalendar data={eventsList} />
+        <CustomCalendar
+          data={eventsList}
+          onEventClick={(data) => {
+            console.log(data);
+          }}
+        />
       </div>
     </div>
   );
