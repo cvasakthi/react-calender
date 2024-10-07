@@ -8,7 +8,7 @@ import "./CustomCalendar.css"; // Custom styles
 
 interface CalenderProps {
   data: EventI[];
-  onEventClick?: (data: EventI[]) => void;
+  onEventClick?: (ant: EventI[]) => void;
 }
 const CustomCalendar = ({ data, onEventClick }: CalenderProps) => {
   const [eventsList, setEventsList] = useState<any[]>([]);
@@ -23,7 +23,7 @@ const CustomCalendar = ({ data, onEventClick }: CalenderProps) => {
   const renderEventContent = (eventInfo: any) => {
     const { title, extendedProps } = eventInfo.event._def;
     const pending = extendedProps?.events?.length;
-    const role = extendedProps?.events[0].job_id.jobRequest_Title;
+    const role = extendedProps?.events?.[0]?.job_id?.jobRequest_Title || "";
     return (
       <div className="bg-white min-w-fit min-h-fit grid grid-cols-[12px_1fr] w-full relative">
         {pending > 1 && (
@@ -58,7 +58,7 @@ const CustomCalendar = ({ data, onEventClick }: CalenderProps) => {
       eventBorderColor="transparent"
       eventClassNames={" rounded-md shadow-md cursor-pointer"}
       eventClick={(e) => {
-        onEventClick?.(e?.event?._def?.extendedProps as EventI[]);
+        onEventClick?.(e?.event?._def?.extendedProps?.events as EventI[]);
       }}
       eventContent={renderEventContent}
     />

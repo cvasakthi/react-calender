@@ -64,31 +64,29 @@ const SlideOver: FC<SlideOverProps> = ({
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="p-6">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-semibold">{title}</h2>
-            <button
-              onClick={toggleSlideOver}
-              className="bg-blue-600 text-white rounded-full hover:bg-blue-700 transition cursor-pointer"
+        <div className="flex justify-between items-center border-b p-4">
+          <h2 className="text-xl font-semibold">{title}</h2>
+          <button
+            onClick={toggleSlideOver}
+            className="bg-blue-600 text-white rounded-full hover:bg-blue-700 transition cursor-pointer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </div>
-          {children}
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
         </div>
+        <div className="px-3">{children}</div>
       </div>
     </div>
   );

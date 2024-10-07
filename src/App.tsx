@@ -3,6 +3,7 @@ import CustomCalendar from "./component/calender/CustomCalendar";
 import { fetchAllEvents } from "./api/eventsList";
 import { EventI } from "./type/events";
 import SlideOver from "./component/SlideOver";
+import MeetingList from "./component/MeetingList";
 
 function App() {
   const [eventsList, setEventsList] = useState<EventI[]>([]);
@@ -32,7 +33,7 @@ function App() {
           open={showSlideover}
           title="Meetings"
         >
-          <div>Slide over component</div>
+          <MeetingList meeting={selected} />
         </SlideOver>
       )}
       <div className="h-screen w-screen">
