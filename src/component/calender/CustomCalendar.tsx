@@ -4,33 +4,27 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import "./CustomCalendar.css"; // Custom styles
+import { EventI } from "../../type/events";
 
-const CustomCalendar = () => {
+interface CalenderProps {
+  data: EventI[];
+}
+const CustomCalendar = ({ data }: CalenderProps) => {
   const [events] = useState([
     { title: "Event 1", date: "2024-10-08" },
     { title: "Event 2", date: "2024-10-09" },
   ]);
-
   return (
     <FullCalendar
       plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
       initialView="timeGridWeek"
       events={events}
       themeSystem="standard"
-    
       nowIndicator={true}
       selectable={false}
       allDaySlot={false}
-      customButtons={{
-        myCustomButton: {
-          text: "custom!",
-          click: function () {
-            alert("clicked the custom button!");
-          },
-        },
-      }}
       headerToolbar={{
-        left: "prev,next today  myCustomButton",
+        left: "prev,next today",
         center: "title",
         right: "dayGridMonth,timeGridWeek,timeGridDay",
       }}
