@@ -25,14 +25,14 @@ const CustomCalendar = ({ data, onEventClick }: CalenderProps) => {
     const pending = extendedProps?.events?.length;
     const role = extendedProps?.events?.[0]?.job_id?.jobRequest_Title || "";
     return (
-      <div className="bg-white min-w-fit min-h-fit grid grid-cols-[12px_1fr] w-full relative">
+      <div className="bg-white min-w-fit min-h-fit grid grid-cols-[12px_1fr] w-full relative ">
         {pending > 1 && (
-          <span className="absolute top-0 right-0 h-5 w-5 rounded-full bg-yellow-400 text-gray-900 grid place-items-center text-xs">
+          <span className="absolute -top-2 -right-2 h-5 w-5 rounded-full bg-yellow-400 text-gray-900 grid place-items-center text-xs">
             {pending}
           </span>
         )}
         <div className="bg-blue-700 rounded-l" />
-        <div className="flex flex-col gap-4 p-1 w-full">
+        <div className="flex flex-col gap-4 p-1 w-full hover:bg-sky-100">
           <p className="text-gray-900">{role}</p>
           <p className="text-gray-900">{title}</p>
         </div>
